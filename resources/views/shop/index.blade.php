@@ -12,7 +12,7 @@
             <h2>{{$product->price}}$</h2>
             <p>{{$product->description}}</p>
             <p>
-              <a href="#" class="btn btn-primary" role="button">Ajouter au panier</a> 
+              <a href="{{route('product.add',['id' => $product->id])}}" class="btn btn-primary" role="button">Ajouter au panier</a> 
             </p>
           </div>
         </div>
