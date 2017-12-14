@@ -27,6 +27,7 @@
     @include('includes.navbar')
 
     <div class="container cont">
+        @include('includes.messages')
         @yield('content')
     </div><!-- /.container -->
 

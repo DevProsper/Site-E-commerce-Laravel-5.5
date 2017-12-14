@@ -21,3 +21,8 @@ Route::get('/product/add/{id}', [
 	'uses'	=> 'ProductController@addItem',
 	'as'	=> 'product.add'
 ]);
+
+Route::get('/product/cart', [
+	'uses'	=> 'ProductController@getCart',
+	'as'	=> 'product.cart'
+]);

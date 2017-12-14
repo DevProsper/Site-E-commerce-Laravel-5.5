@@ -23,6 +23,13 @@ class ProductController extends Controller
     	Session::put('cart', $cart);
     	Session::save();
 
-    	dd($cart);
+    	return redirect()->route('product.index')->with('success', 'Nouvel article ajouter au panier!');
+    }
+
+    public function getCart(){
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($currentCart);
+
+        return view('shop.cart')->with(['items' => $cart->items, 'totalP' => $cart->totalP]);
     }
 }

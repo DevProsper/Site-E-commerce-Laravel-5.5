@@ -12,7 +12,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Accueil</a></li>
-            <li><a href="#">Mon Panier</a></li>
+            <li><a href="{{route('product.cart')}}">Mon Panier <span class="badge">{{Session::has('cart') ? Session::get('cart')->totalQ : 0}}</span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
