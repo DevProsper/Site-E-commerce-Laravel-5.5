@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 <style type="text/css">
 /**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows

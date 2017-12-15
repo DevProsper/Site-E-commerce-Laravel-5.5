@@ -36,3 +36,6 @@ Route::post('/product/checkout', [
 	'uses'	=> 'ProductController@postCheckout',
 	'as'	=> 'product.postCheckout'
 ]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

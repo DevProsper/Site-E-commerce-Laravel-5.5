@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
 use Session;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -34,10 +35,17 @@ class ProductController extends Controller
     }
 
     public function getCheckout(){
+        if (Auth::guest() || !Session::get('cart')) {
+            return redirect()->route('product.index')->with('error', 'Merci de vous connecté');
+        }
         return view('shop.checkout');
     }
 
     public function postCheckout(){
+        
+        if (Auth::guest() || !Session::get('cart')) {
+            return redirect()->route('product.index')->with('error', 'Merci de vous connecté');
+        }
 
         $totalP = Session::get('cart')->totalP * 100;
         // Set your secret key: remember to change this to your live secret key in production
