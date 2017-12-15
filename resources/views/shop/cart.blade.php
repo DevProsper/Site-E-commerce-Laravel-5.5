@@ -14,8 +14,8 @@
                   </li>
               @endforeach
           </ul>
+          <span class="pull-right badge">Total à payer : {{$totalP}} $</span>
+          <a href="{{route('product.checkout')}}" class="btn btn-primary">Passé au paiement</a>
       @endif
-      <span class="pull-right badge">Total à payer : {{$totalP}} $</span>
-      <a href="#" class="btn btn-primary">Passé au paiement</a>
   </div>
 @endsection

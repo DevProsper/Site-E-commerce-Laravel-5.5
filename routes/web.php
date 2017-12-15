@@ -26,3 +26,13 @@ Route::get('/product/cart', [
 	'uses'	=> 'ProductController@getCart',
 	'as'	=> 'product.cart'
 ]);
+
+Route::get('/product/checkout', [
+	'uses'	=> 'ProductController@getCheckout',
+	'as'	=> 'product.checkout'
+]);
+
+Route::post('/product/checkout', [
+	'uses'	=> 'ProductController@postCheckout',
+	'as'	=> 'product.postCheckout'
+]);

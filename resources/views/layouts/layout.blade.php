@@ -16,6 +16,9 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
+    <!-- Stripe 3 -->
+    <script src="https://js.stripe.com/v3/"></script>
+
   </head>
     <style type="text/css">
         .cont{
