@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Order;
 use App\Cart;
 use Session;
 use Auth;
@@ -64,7 +65,15 @@ class ProductController extends Controller
           "source" => $token,
         ));
 
+        $cart = Session::get('cart');
+
+        $order = new Order();
+        $order->cart = serialize($cart);
+
+        Auth::user()->orders()->save($order);
+
         Session::forget('cart');
         return redirect()->route('product.index')->with('success', 'Votre commande a été éffectué');
     }
+
 }
