@@ -76,4 +76,35 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Votre commande a été éffectué');
     }
 
+    public function reduceByOne($id){
+
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($currentCart);
+        $cart->reduceByOne($id);
+
+        Session::put('cart', $cart);
+        Session::save();
+
+        if ($cart->items <= 0) {
+            Session::forget('cart');
+        }
+
+        return redirect()->route('product.cart')->with('success', "L'article a bien été supprimé !");
+    }
+
+    public function deleteProduct($id){
+        $currentCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($currentCart);
+        $cart->delete($id);
+
+        Session::put('cart', $cart);
+        Session::save();
+
+        if ($cart->items <= 0) {
+            Session::forget('cart');
+        }
+
+        return redirect()->route('product.cart')->with('success', "L'article a bien été supprimé !");
+    }
+
 }

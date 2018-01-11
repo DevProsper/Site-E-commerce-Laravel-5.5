@@ -10,6 +10,8 @@
               @foreach($items as $item)
                   <li class="list-group-item">
                       <span><strong>{{$item['item']->title}}</strong> x {{$item['quantity']}}</span>
+                      <a href="{{route('product.reduce', ['id' => $item['item']->id])}}"><i class="fa fa-minus-square" aria-hidden="true">X</i></a>
+                      <a href="{{route('product.delete', ['id' => $item['item']->id])}}"><i class="fa fa-trash" aria-hidden="true">XX</i></a>
                       <span class="badge">{{$item['price']}} $</span>
                   </li>
               @endforeach

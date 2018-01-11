@@ -49,4 +49,21 @@ class Cart{
 		$this->totalQ++;
 		$this->totalP += $item->price;
 	}
+
+	public function reduceByOne($id){
+		$this->totalQ--;
+		$this->totalP -= $this->items[$id]['item']->price;
+		$this->items[$id]['quantity']--;
+		$this->items[$id]['price'] -= $this->items[$id]['item']->price;
+
+		if ($this->items[$id]['quantity'] <= 0) {
+			unset($this->items[$id]);
+		}
+	}
+
+	public function delete($id){
+		$this->totalQ -= $this->items[$id]['quantity'];
+		$this->totalP -= $this->items[$id]['price'];
+		unset($this->items[$id]);
+	}
 }
